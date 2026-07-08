@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Task-Fit Filter — AI at Work</title>
+<meta name="description" content="A one-page screen for choosing a task AI will actually win at. From AI at Work, AI Forge.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<style>
+  :root {
+    --bg: #0a0f1e;
+    --panel: #111a30;
+    --line: #23304d;
+    --ink: #eaf0ff;
+    --muted: #9fb0d0;
+    --amber: #f59e0b;
+    --green: #34d399;
+    --red: #f87171;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font);
+    line-height: 1.5;
+    font-size: 15px;
+  }
+  .page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--amber);
+  }
+  .masthead img {
+    height: 26px;
+    width: auto;
+  }
+  .masthead .kicker {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 0 0 8px;
+  }
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 28px 0 10px;
+    color: var(--amber);
+  }
+  p {
+    margin: 0 0 12px;
+  }
+  .intro {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .gate {
+    border-left: 3px solid var(--red);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px;
+    font-size: 0.9rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .score-col {
+    width: 90px;
+    text-align: center;
+  }
+  .verdict-table td:first-child {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .green-text { color: var(--green); font-weight: 700; }
+  .amber-text { color: var(--amber); font-weight: 700; }
+  .red-text { color: var(--red); font-weight: 700; }
+  .worked-examples li {
+    margin-bottom: 10px;
+  }
+  .footer-note {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* Print styles — A4, branded one-pager */
+  @media print {
+    @page {
+      size: A4;
+      margin: 14mm;
+    }
+    body {
+      background: #fff;
+      color: #0a0f1e;
+      font-size: 11.5px;
+    }
+    .page {
+      max-width: none;
+      padding: 0;
+    }
+    .masthead {
+      border-bottom-color: #f59e0b;
+    }
+    .masthead .kicker { color: #4b5a78; }
+    h2 { color: #b45f06; }
+    .panel {
+      background: #f5f7fb;
+      border-color: #ccd6e8;
+      break-inside: avoid;
+    }
+    table { break-inside: avoid; }
+    .green-text { color: #0d7d54; }
+    .amber-text { color: #b45f06; }
+    .red-text { color: #c23636; }
+    a { color: inherit; text-decoration: none; }
+    .footer-note { color: #4b5a78; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <img src="assets/logo.svg" alt="AI Forge">
+    <span class="kicker">AI at Work — one-pager</span>
+  </div>
+
+  <h1>The Task-Fit Filter</h1>
+  <p class="intro">Is this a workflow AI will actually win at? A one-page screen for choosing a task before you invest a brief in it — used to pick a capstone in the AI at Work course, and useful the moment you read it.</p>
+
+  <h2>Step 1 — Two hard gates</h2>
+  <p>These aren't scored. If the answer is "yes" to either, the task is off-frontier as written — stop and reshape it.</p>
+  <div class="panel gate">
+    <p><strong>G1 — Judgement:</strong> Are you asking the AI to make the final expert judgement (decide strategy, diagnose, rule on a case, sign off) rather than to do the work that informs your judgement? → <span class="red-text">off-frontier</span>.</p>
+    <p style="margin-bottom:0"><strong>G2 — Stakes:</strong> Is the output high-stakes and irreversible with no human check before it lands (money moves, legal filing, a decision sent to a client/board unreviewed)? → <span class="red-text">off-frontier</span> until a human gate is added.</p>
+  </div>
+  <p>Both gates encode the same rule: the AI does the work; the human owns the judgement and the send button.</p>
+
+  <h2>Step 2 — Score the fit</h2>
+  <p>Score each question <strong>0 = no · 1 = partly · 2 = yes</strong>.</p>
+  <table>
+    <thead>
+      <tr><th>#</th><th>Question</th><th class="score-col">Score</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Bounded</strong> — is there a clear "done"? You could describe a good result in a sentence.</td><td class="score-col">&nbsp;</td></tr>
+      <tr><td>2</td><td><strong>Document / comms / data-shaped</strong> — is the core reading, writing, summarising, or reformatting text or structured data?</td><td class="score-col">&nbsp;</td></tr>
+      <tr><td>3</td><td><strong>Recurring</strong> — does it happen often (daily/weekly)?</td><td class="score-col">&nbsp;</td></tr>
+      <tr><td>4</td><td><strong>Verifiable fast</strong> — can you check the output against a clear standard in minutes?</td><td class="score-col">&nbsp;</td></tr>
+      <tr><td>5</td><td><strong>Inputs reachable</strong> — does the AI have (or can a connector give it) the material it needs?</td><td class="score-col">&nbsp;</td></tr>
+      <tr><td>6</td><td><strong>Judgement-light at the core</strong> — is the thinking mostly assembly/transformation, with you keeping the calls?</td><td class="score-col">&nbsp;</td></tr>
+      <tr><td colspan="2"><strong>Total (max 12)</strong></td><td class="score-col">&nbsp;</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Step 3 — Verdict</h2>
+  <table class="verdict-table">
+    <thead>
+      <tr><th>Score</th><th>Verdict</th><th>Do this</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="green-text">9–12</td><td>On-frontier — proceed.</td><td>This is a strong candidate. Baseline the hours before you start.</td></tr>
+      <tr><td class="amber-text">5–8</td><td>Reshape it (Step 4).</td><td>Narrow it until it scores green — don't abandon it.</td></tr>
+      <tr><td class="red-text">0–4</td><td>Pick a different task.</td><td>Or carve one on-frontier sub-task out of it.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Step 4 — Reshape an off-frontier task</h2>
+  <p>Most "too big" tasks contain a great sub-task: decompose → let the AI do the assembly → you keep the judgement.</p>
+  <table>
+    <thead>
+      <tr><th>Off-frontier (as stated)</th><th>On-frontier reshape</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>"Decide our Q3 strategy" (G1 fail — judgement)</td><td>"Assemble a cited briefing pack on the three options; I decide."</td></tr>
+      <tr><td>"Handle the client relationship" (too open)</td><td>"Draft the weekly client update from the activity log; I review and send."</td></tr>
+      <tr><td>"Do our compliance" (high-stakes, vague)</td><td>"List which documents are outstanding and draft the chasers; I approve."</td></tr>
+      <tr><td>"Write the board report" (judgement + stakes)</td><td>"Turn the ops figures into a formatted draft with a 'needs a decision' box; I finalise."</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Worked examples</h2>
+  <ul class="worked-examples">
+    <li><span class="green-text">Green.</span> "Draft the weekly board email from the ops summary." Bounded (2), doc-shaped (2), weekly (2), verifiable (2), inputs in hand (2), judgement-light (2) = <strong>12</strong>. Both gates pass. Strong candidate.</li>
+    <li><span class="amber-text">Amber.</span> "Keep the team across industry news." Scores 9 but vague — reshape to "a cited weekly briefing on these 5 topics, flagged by confidence" → clean green.</li>
+    <li><span class="red-text">Red.</span> "Approve or deny claims automatically." G1 and G2 both fail (final judgement + irreversible, high stakes). Reshape to "pre-screen and summarise each claim against the checklist; a human decides" — and still treat AI-driven denial as a flagged governance risk.</li>
+  </ul>
+
+  <div class="footer-note">
+    <p>This filter is one part of <strong>AI at Work</strong> — six live sessions where you direct an AI on your own recurring tasks, measured in hours before and after. Independent studies show roughly 14–40% on this kind of work — we measure yours.</p>
+    <p style="margin-bottom:0">AI Forge · Certified AI at Work Practitioner</p>
+  </div>
+
+</div>
+</body>
+</html>

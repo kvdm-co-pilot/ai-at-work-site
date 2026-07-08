@@ -1,0 +1,26 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI at Work — AI Forge">
+  <rect x="0" y="0" width="1200" height="630" fill="#0a0f1e"/>
+  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="#23304d" stroke-width="1"/>
+
+  <!-- mark -->
+  <g transform="translate(90,90) scale(1.35)">
+    <rect x="5" y="5" width="90" height="90" rx="18" fill="none" stroke="#eaf0ff" stroke-width="5"/>
+    <path d="M50 18.56 L23.32 77.44 L37.12 77.44 L43.1 63.64 L50 63.64 L50 52.6 L47.52 52.6 L50 47.08 L50 18.56 Z" fill="#eaf0ff"/>
+    <path d="M50 18.56 L76.68 77.44 L62.88 77.44 L56.9 63.64 L50 63.64 L50 52.6 L52.48 52.6 L50 47.08 Z" fill="#eaf0ff"/>
+    <rect x="50" y="52.6" width="12.88" height="7.36" fill="#eaf0ff"/>
+    <path d="M40.34 59.04 L59.66 59.04 L56.9 63.64 L43.1 63.64 Z" fill="#f59e0b"/>
+  </g>
+  <text x="240" y="150" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#eaf0ff" letter-spacing="0.3">AI</text>
+  <text x="240" y="188" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="26" font-weight="600" fill="#eaf0ff" letter-spacing="5">FORGE</text>
+
+  <!-- headline -->
+  <text x="90" y="330" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="72" font-weight="800" fill="#eaf0ff">AI at Work</text>
+
+  <!-- the Tuesday line -->
+  <text x="90" y="410" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#eaf0ff">You've done the free courses.</text>
+  <text x="90" y="454" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#f59e0b">What do you do differently on a Tuesday?</text>
+
+  <!-- footer rule -->
+  <rect x="90" y="520" width="1020" height="1" fill="#23304d"/>
+  <text x="90" y="565" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="22" fill="#9fb0d0">Six live sessions. Measured in hours, on your own work.</text>
+</svg>

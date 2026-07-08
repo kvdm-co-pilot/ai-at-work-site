@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI at Work — ROI Calculator</title>
+<meta name="description" content="Estimate your team's hours-and-rands number from AI at Work — enter your own recurring tasks, before and after minutes each." />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<style>
+  :root{
+    --bg:#0a0f1e; --panel:#111a30; --line:#23304d; --ink:#eaf0ff; --muted:#9fb0d0;
+    --amber:#f59e0b; --green:#34d399; --red:#f87171;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.5;padding:32px}
+  .wrap{max-width:980px;margin:0 auto}
+  .site-back{display:inline-block;color:var(--muted);text-decoration:none;font-size:0.9rem;margin-bottom:20px}
+  .site-back:hover{color:var(--amber)}
+  .masthead{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+  .masthead img{height:28px;width:auto}
+  h1{font-size:26px;margin:0 0 4px}
+  h1 .accent{color:var(--amber)}
+  .sub{color:var(--muted);margin:0 0 24px;font-size:15px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:20px}
+  .row{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field label{font-size:13px;color:var(--muted)}
+  input{background:#0c1426;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:9px 11px;font:inherit;font-size:15px}
+  input[type=number]{width:120px;font-family:var(--mono)}
+  table{width:100%;border-collapse:collapse;margin-top:6px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-size:14px}
+  th{color:var(--muted);font-weight:600}
+  td input{width:100%}
+  td.num input{width:90px;font-family:var(--mono);text-align:right}
+  .calc{font-family:var(--mono);text-align:right;color:var(--amber)}
+  td.saved.regressed{color:var(--red);font-weight:700}
+  td.saved.regressed::before{content:"▼ "}
+  .stat .v.negative{color:var(--red)}
+  button{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:7px 12px;font:inherit;cursor:pointer}
+  button:hover{border-color:var(--amber);color:var(--amber)}
+  .del{border:none;color:var(--red);font-size:18px;padding:0 6px;cursor:pointer;background:none}
+  .results{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .stat{background:#0c1426;border:1px solid var(--line);border-radius:10px;padding:16px}
+  .stat .k{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .stat .v{font-size:24px;font-family:var(--mono);margin-top:6px}
+  .stat.hero{border-color:var(--amber)}
+  .stat.hero .v{color:var(--amber)}
+  .stat .v.green{color:var(--green)}
+  .note{color:var(--muted);font-size:13px;margin-top:14px}
+  .cta-row{margin-top:24px}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:8px;padding:12px 22px;font-size:0.95rem;background:var(--amber);color:#1a1200}
+  .btn:hover{background:#ffb02e}
+  @media(max-width:760px){.results{grid-template-columns:repeat(2,1fr)}}
+  @media print{body{background:#fff;color:#000}.panel,.stat{border-color:#ccc;background:#fff}button,.del,.site-back,.cta-row{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="site-back" href="index.html">&larr; Back to AI at Work</a>
+  <div class="masthead">
+    <img src="assets/logo.svg" alt="AI Forge">
+  </div>
+  <h1>AI at Work — <span class="accent">ROI Calculator</span></h1>
+  <p class="sub">Capture the <strong>before</strong>, fill the <strong>after</strong> live at Results Review. Measure the whole honest loop — Brief + Run + <strong>Check</strong> + Refine — not just generation.</p>
+
+  <div class="panel">
+    <div class="row">
+      <div class="field">
+        <label for="rate">Loaded hourly cost (ZAR/hour — set per role)</label>
+        <input type="number" id="rate" value="350" min="0" step="10" />
+      </div>
+      <div class="field">
+        <label for="team">Team size (people doing similar tasks)</label>
+        <input type="number" id="team" value="1" min="1" step="1" />
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div style="overflow-x:auto">
+    <table id="tbl">
+      <thead>
+        <tr>
+          <th style="width:34%">Recurring task</th>
+          <th class="num">Before<br>min each</th>
+          <th class="num">After<br>min each</th>
+          <th class="num">Times<br>/month</th>
+          <th class="calc">Saved h/mo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    </div>
+    <p><button id="add">+ Add task</button></p>
+  </div>
+
+  <div class="results">
+    <div class="stat"><div class="k">Hours saved / month</div><div class="v green" id="hrs">0.0</div></div>
+    <div class="stat hero"><div class="k">Value / employee / month</div><div class="v" id="permo">R0</div></div>
+    <div class="stat hero"><div class="k">Value / employee / year</div><div class="v" id="peryr">R0</div></div>
+    <div class="stat"><div class="k">× Team / year</div><div class="v" id="teamyr">R0</div></div>
+  </div>
+
+  <p class="note">Capacity freed, not headcount cut. Mark estimates as estimates; a smaller defensible number beats an impressive soft one. Independent studies show roughly 14–40% on this kind of work — we measure yours on the six-session course.</p>
+
+  <p class="cta-row"><a class="btn" href="index.html#logistics">Book your seat in AI at Work</a></p>
+</div>
+
+<script>
+(function(){
+  const rows = document.getElementById('rows');
+  const seed = [
+    {t:'Draft the weekly board email', b:90, a:20, n:4},
+    {t:'Assemble the weekly ops/cost summary', b:120, a:35, n:4},
+    {t:'Reply to routine supplier email', b:15, a:5, n:40},
+    {t:'', b:'', a:'', n:''},
+    {t:'', b:'', a:'', n:''},
+  ];
+  const zar = new Intl.NumberFormat('en-ZA',{style:'currency',currency:'ZAR',maximumFractionDigits:0});
+
+  function rowHtml(d){
+    return `<tr>
+      <td><input type="text" class="t" value="${d.t}" placeholder="task…"></td>
+      <td class="num"><input type="number" class="b" value="${d.b}" min="0" step="5"></td>
+      <td class="num"><input type="number" class="a" value="${d.a}" min="0" step="5"></td>
+      <td class="num"><input type="number" class="n" value="${d.n}" min="0" step="1"></td>
+      <td class="calc saved">0.0</td>
+      <td><button class="del" title="remove">×</button></td>
+    </tr>`;
+  }
+  function addRow(d){ rows.insertAdjacentHTML('beforeend', rowHtml(d||{t:'',b:'',a:'',n:''})); recompute(); }
+  seed.forEach(addRow);
+
+  function num(el){ const v=parseFloat(el.value); return isNaN(v)?0:v; }
+  function recompute(){
+    const rate=num(document.getElementById('rate'));
+    const team=Math.max(1,num(document.getElementById('team')));
+    let totalSaved=0;
+    rows.querySelectorAll('tr').forEach(tr=>{
+      const b=num(tr.querySelector('.b')), a=num(tr.querySelector('.a')), n=num(tr.querySelector('.n'));
+      // A task that got slower must stay visible — a negative saving is honest, not floored to zero.
+      const saved=(b-a)*n/60;
+      const cell=tr.querySelector('.saved');
+      cell.textContent=saved.toFixed(1);
+      cell.classList.toggle('regressed', saved<0);
+      totalSaved+=saved;
+    });
+    const perMo=totalSaved*rate;
+    const neg=totalSaved<0;
+    const hrs=document.getElementById('hrs');
+    hrs.textContent=totalSaved.toFixed(1);
+    // A net-negative cohort must read as negative, not as a green win.
+    hrs.classList.toggle('green',!neg);
+    hrs.classList.toggle('negative',neg);
+    [['permo',perMo],['peryr',perMo*12],['teamyr',perMo*12*team]].forEach(([id,val])=>{
+      const el=document.getElementById(id);
+      el.textContent=zar.format(val);
+      el.classList.toggle('negative',val<0);
+    });
+  }
+  rows.addEventListener('input', recompute);
+  document.getElementById('rate').addEventListener('input', recompute);
+  document.getElementById('team').addEventListener('input', recompute);
+  rows.addEventListener('click', e=>{ if(e.target.classList.contains('del')){ e.target.closest('tr').remove(); recompute(); }});
+  document.getElementById('add').addEventListener('click', ()=>addRow());
+  recompute();
+})();
+</script>
+</body>
+</html>
