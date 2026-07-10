@@ -1,13 +1,12 @@
 <svg viewBox="0 0 420 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI Forge">
   <defs>
     <linearGradient id="cLine" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#eaf0ff"/>
-      <stop offset="1" stop-color="#f59e0b"/>
+      <stop offset="0" stop-color="#141b2e"/>
+      <stop offset="1" stop-color="#c47a12"/>
     </linearGradient>
   </defs>
-  <!-- Logo C - merge/converge diamond: origin -> two branches -> verified amber merge node -->
-  <circle cx="84" cy="50" r="24" fill="#f59e0b" opacity="0.18"/>
-  <g stroke="#eaf0ff" stroke-width="8" stroke-linecap="round">
+  <circle cx="84" cy="50" r="24" fill="#f59e0b" opacity="0.16"/>
+  <g stroke="#141b2e" stroke-width="8" stroke-linecap="round">
     <line x1="36" y1="50" x2="60" y2="26"/>
     <line x1="36" y1="50" x2="60" y2="74"/>
   </g>
@@ -15,10 +14,10 @@
     <line x1="60" y1="26" x2="84" y2="50"/>
     <line x1="60" y1="74" x2="84" y2="50"/>
   </g>
-  <circle cx="36" cy="50" r="10" fill="#eaf0ff"/>
-  <circle cx="60" cy="26" r="10" fill="#eaf0ff"/>
-  <circle cx="60" cy="74" r="10" fill="#eaf0ff"/>
+  <circle cx="36" cy="50" r="10" fill="#141b2e"/>
+  <circle cx="60" cy="26" r="10" fill="#141b2e"/>
+  <circle cx="60" cy="74" r="10" fill="#141b2e"/>
   <circle cx="84" cy="50" r="15" fill="#f59e0b"/>
   <path d="M77 50 L82 56 L92 44" fill="none" stroke="#0a0f1e" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="122" y="64" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="-0.5" fill="#eaf0ff">AI FORGE</text>
+  <text x="122" y="64" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="-0.5" fill="#141b2e">AI FORGE</text>
 </svg>
