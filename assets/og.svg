@@ -1,26 +1,22 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI at Work — AI Forge">
-  <rect x="0" y="0" width="1200" height="630" fill="#0a0f1e"/>
-  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="#23304d" stroke-width="1"/>
-
-  <!-- mark -->
-  <g transform="translate(90,90) scale(1.35)">
-    <rect x="5" y="5" width="90" height="90" rx="18" fill="none" stroke="#eaf0ff" stroke-width="5"/>
-    <path d="M50 18.56 L23.32 77.44 L37.12 77.44 L43.1 63.64 L50 63.64 L50 52.6 L47.52 52.6 L50 47.08 L50 18.56 Z" fill="#eaf0ff"/>
-    <path d="M50 18.56 L76.68 77.44 L62.88 77.44 L56.9 63.64 L50 63.64 L50 52.6 L52.48 52.6 L50 47.08 Z" fill="#eaf0ff"/>
-    <rect x="50" y="52.6" width="12.88" height="7.36" fill="#eaf0ff"/>
-    <path d="M40.34 59.04 L59.66 59.04 L56.9 63.64 L43.1 63.64 Z" fill="#f59e0b"/>
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI at Work — a course by AI Forge">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#141b2e"/><stop offset="1" stop-color="#c47a12"/></linearGradient>
+    <radialGradient id="wash" cx="82%" cy="0%" r="72%"><stop offset="0" stop-color="#f59e0b" stop-opacity="0.15"/><stop offset="0.62" stop-color="#f59e0b" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#f6f3ed"/>
+  <rect width="1200" height="630" fill="url(#wash)"/>
+  <g transform="translate(64,64) scale(0.64)">
+    <circle cx="84" cy="50" r="24" fill="#f59e0b" opacity="0.16"/>
+    <g stroke="#141b2e" stroke-width="8" stroke-linecap="round"><line x1="36" y1="50" x2="60" y2="26"/><line x1="36" y1="50" x2="60" y2="74"/></g>
+    <g stroke="url(#g)" stroke-width="8" stroke-linecap="round"><line x1="60" y1="26" x2="84" y2="50"/><line x1="60" y1="74" x2="84" y2="50"/></g>
+    <circle cx="36" cy="50" r="10" fill="#141b2e"/><circle cx="60" cy="26" r="10" fill="#141b2e"/><circle cx="60" cy="74" r="10" fill="#141b2e"/>
+    <circle cx="84" cy="50" r="15" fill="#f59e0b"/>
+    <path d="M77 50 L82 56 L92 44" fill="none" stroke="#0a0f1e" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
-  <text x="240" y="150" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#eaf0ff" letter-spacing="0.3">AI</text>
-  <text x="240" y="188" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="26" font-weight="600" fill="#eaf0ff" letter-spacing="5">FORGE</text>
-
-  <!-- headline -->
-  <text x="90" y="330" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="72" font-weight="800" fill="#eaf0ff">AI at Work</text>
-
-  <!-- the Tuesday line -->
-  <text x="90" y="410" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#eaf0ff">You've done the free courses.</text>
-  <text x="90" y="454" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="30" font-weight="600" fill="#f59e0b">What do you do differently on a Tuesday?</text>
-
-  <!-- footer rule -->
-  <rect x="90" y="520" width="1020" height="1" fill="#23304d"/>
-  <text x="90" y="565" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="22" fill="#9fb0d0">Six live sessions. Measured in hours, on your own work.</text>
+  <text x="150" y="106" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="34" font-weight="900" letter-spacing="-0.5" fill="#141b2e">AI FORGE</text>
+  <text x="66" y="252" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="23" font-weight="800" letter-spacing="3" fill="#945a0f">AI AT WORK · FOR REGULATED TEAMS</text>
+  <text x="64" y="332" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.5" fill="#141b2e">Ship AI-assisted work your</text>
+  <text x="64" y="406" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.5" fill="#141b2e">auditors will still respect.</text>
+  <text x="66" y="472" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="29" font-weight="500" fill="#5a6478">A practical cohort — verification discipline for AI delivery.</text>
+  <text x="66" y="562" font-family="Inter, -apple-system, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#945a0f">6 live sessions · R7,500 / seat</text>
 </svg>
